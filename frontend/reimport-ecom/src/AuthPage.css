@@ -1,0 +1,67 @@
+/* AuthPage.css */
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 350px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.auth-tab {
+  cursor: pointer;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  background: linear-gradient(to bottom, #2CC029FF 0%, #2CC029FF 100%) repeat-x 0 100%;
+  background-size: 4px 1px;
+  transition: background-size 0.2s;
+}
+
+.auth-tab.active {
+  background-size: 1px 50px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form-field {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.auth-form-action {
+  /*background: #ff7600; !* Оранжевая кнопка *!*/
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.auth-form-action:hover {
+  background: #2CC029FF; /* Темный оранжевый для ховера */
+}
+
+.auth-form-footer {
+  margin-top: 20px;
+  text-align: center;
+  /*color: #ffffff;*/
+}
+
+/*.auth-form-footer a {*/
+/*  color: #ff7600;*/
+/*  text-decoration: none;*/
+/*}*/
+
+/* Дополнительные стили */

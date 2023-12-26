@@ -1,0 +1,241 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* App.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between; /* Распределяет пространство между элементами */
+  align-items: center; /* Выравнивание по вертикали */
+  padding: 10px 20px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center; /* Выравнивание по вертикали, если есть элементы разного размера */
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.last-item {
+  margin-left: auto; /* Это автоматически вытолкнет элемент вправо */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.container {
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product, .cart-item {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2CC029FF;
+  opacity: 0.9;
+}
+
+/* App.css */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+
+.product-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-name {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.product-price {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* App.css */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.cart-item img {
+  max-width: 60px;
+  height: auto;
+  margin-right: 15px;
+}
+
+.cart-item-details {
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Занимает доступное пространство */
+}
+
+.cart-item-details img {
+  max-width: 60px;
+  height: auto;
+  margin-right: 15px;
+}
+
+.cart-item-info {
+  flex-grow: 2; /* Дает дополнительное пространство для названия и описания */
+  text-align: left;
+}
+
+.cart-item-price {
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+/* App.css */
+.cart-summary {
+  flex-grow: 1; /* Занимает оставшееся место */
+  background-color: #f8f8f8; /* Слегка отличающийся фон для разделения */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary h3 {
+  margin-top: 0;
+}
+
+.cart-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Добавим промежуток между блоками */
+}
+
+.cart-items {
+  flex-grow: 2; /* Позволяет элементу списка занимать больше места */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-button {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkout-button:hover {
+  background-color: #45a049;
+}
+
+.cart-count {
+  color: white;
+  background-color: #4CAF50;
+  border-radius: 80%; /* Делаем кружок */
+  padding: 2px 6px;
+  align-items: center;
+  font-size: 0.75em;
+  position: absolute;
+  margin-left: 2px;
+  margin-right: 4px;
+}
+
+.cart-menu {
+  margin-right: 38px;
+}
