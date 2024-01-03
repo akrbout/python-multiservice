@@ -1,0 +1,278 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Basic Reset */
+body, h1, ul, li, button {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Layout */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #524e4a;
+  color: white;
+  padding: 10px 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Material Card Style for Products */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card h3, .card p {
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.button {
+  background-color: #b4b412;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: #d5d515;
+}
+
+/* List */
+ul {
+  padding: 0;
+}
+
+li {
+  background: #f5f5f5;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.quantity-selector button {
+  border: none;
+  background-color: #e0e0e0;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0.13em;
+}
+
+.quantity-selector input {
+  text-align: center;
+  padding: 5px;
+  margin: 0 5px;
+  width: 50px;
+  border: 1px solid #e0e0e0;
+}
+
+.order-history {
+  margin: 20px 0;
+}
+
+.order-item {
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.order-item p {
+  margin: 5px 0;
+  color: #333;
+}
+
+/* Style for blurred unauthorized screen */
+.blurred {
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.auth-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  z-index: 1000;
+  text-align: center;
+}
+
+.auth-popup h2 {
+  margin-bottom: 20px;
+}
+
+.auth-popup button {
+  background-color: #6200ea;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.auth-popup button:hover {
+  background-color: #7c4dff;
+}
+
+.goods-page {
+  padding: 50px;
+  margin: 10px;
+  background-color: #f9f9f9;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.product-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.product-name {
+  font-size: 1.2rem;
+  margin-top: 8px;
+}
+
+.product-price {
+  color: #666;
+  font-size: 1rem;
+}
+
+.product-description {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* Responsive Grid */
+@media (max-width: 1200px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.add-to-cart-button {
+  background-color: #6200EA; /* Material Design Purple */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+  background-color: #7F39FB; /* A lighter purple for hover state */
+}
+
+
