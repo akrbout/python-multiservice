@@ -9,6 +9,7 @@ class AccountRoles(Enum):
 
 class User(BaseModel):
     email: EmailStr = Field()
+    username: str = Field()
     full_name: str = Field(description="Имя пользователя")
     phone_num: str = Field()
     role: AccountRoles = Field(default=AccountRoles.default, description="Тип аккаунта пользователя")

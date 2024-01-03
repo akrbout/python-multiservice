@@ -4,7 +4,7 @@ from fastapi_users.db import SQLAlchemyBaseUserTable
 from sqlalchemy import String, ARRAY
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
-from sqlalchemy.orm import relationship, DeclarativeBase
+from sqlalchemy.orm import DeclarativeBase
 
 
 class Base(DeclarativeBase):
@@ -17,8 +17,21 @@ class Product(Base):
     name: Mapped[str]
     price: Mapped[int]
     image_url: Mapped[str]
+    description: Mapped[str]
+    category: Mapped[int]
+    warehouse: Mapped[int]
+    total_count: Mapped[int]
 
     __tablename__ = "product"
+
+
+class Review(Base):
+    author: Mapped[str]
+    product: Mapped[str]
+    rate: Mapped[int]
+    review_desc: Mapped[str]
+
+    __tablename__ = "review"
 
 
 class Order(Base):
@@ -31,11 +44,25 @@ class Order(Base):
     __tablename__ = "order"
 
 
+class Category(Base):
+    name: Mapped[str]
+    description_desc: Mapped[str]
+
+    __tablename__ = "category"
+
+
+class Warehouse(Base):
+    address: Mapped[str]
+    manager: Mapped[int]
+
+    __tablename__ = "warehouse"
+
+
 class User(SQLAlchemyBaseUserTable[int], Base):
     full_name: Mapped[str | None]
     phone_num: Mapped[str | None]
     role: Mapped[str | None]
-    organisations = relationship("Organisation", backref="user", uselist=False)
-    social_links = relationship("SocialAccount")
+    photo_url: Mapped[str | None]
+    username: Mapped[str | None]
 
     __tablename__ = "user"

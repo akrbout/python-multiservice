@@ -6,3 +6,4 @@ class Product(BaseModel):
     name: str = Field()
     price: float = Field()
     image_url: str = Field(alias="imageUrl")
+    description: str = Field()
