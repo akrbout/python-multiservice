@@ -40,6 +40,7 @@ class Order(Base):
     status: Mapped[str]
     total_price: Mapped[int]
     total_discount: Mapped[int] = mapped_column(default=0)
+    source_warehouse: Mapped[int]
 
     __tablename__ = "order"
 
@@ -56,6 +57,14 @@ class Warehouse(Base):
     manager: Mapped[int]
 
     __tablename__ = "warehouse"
+
+
+class DeliveryStatus(Base):
+    name: Mapped[str]
+    description_desc: Mapped[str]
+    source_warehouse: Mapped[int]
+
+    __tablename__ = "delivery_status"
 
 
 class User(SQLAlchemyBaseUserTable[int], Base):
