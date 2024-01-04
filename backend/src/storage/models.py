@@ -90,7 +90,7 @@ class User(SQLAlchemyBaseUserTable[int], Base):
     full_nm: Mapped[str | None]
     phone_num: Mapped[str | None]
     role: Mapped[str | None]
-    photo_url: Mapped[str | None]
+    photo_base64: Mapped[str | None]
     username: Mapped[str | None]
     warehouses = relationship("Warehouse")
     orders = relationship("Order")
