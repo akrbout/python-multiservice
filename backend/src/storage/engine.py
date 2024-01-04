@@ -6,7 +6,6 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_asyn
 
 from src.settings import database_settings
 from src.storage.models import Base, User
-from src.static import delivery_status
 
 engine = create_async_engine(database_settings.connection_string)
 async_session_maker = async_sessionmaker(engine, expire_on_commit=False)

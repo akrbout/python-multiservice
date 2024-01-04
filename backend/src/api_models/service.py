@@ -4,6 +4,7 @@ from pydantic import BaseModel
 
 class DefaultModel(BaseModel):
     full_nm: str
+    username: str
 
 
 class UserRead(schemas.BaseUser[int], DefaultModel):

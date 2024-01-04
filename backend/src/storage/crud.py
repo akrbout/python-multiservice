@@ -17,11 +17,11 @@ class BaseCrud:
         return results.all()
 
     async def get_first_one(self, id: int, obj: ...):
-        statement = select(obj).where(obj.id == id)
+        statement = select(obj).where((obj.id == id) and (obj.is_deleted is not True))
         return await self._execute_statement_for_one(statement)
 
     async def get_all(self, obj: ...):
-        statement = select(obj)
+        statement = select(obj).where(obj.is_deleted is not True)
         return await self._execute_statement_for_list(statement)
 
     async def create(self, obj: ...):

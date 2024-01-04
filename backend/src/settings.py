@@ -13,6 +13,8 @@ class DatabaseSettings(BaseSettings):
     def connection_string(self) -> str:
         if self.engine == "postgresql":
             return f"{self.engine}+asyncpg://{self.user}:{self.password}@{self.host}:{self.port}/{self.name}"
+        else:
+            return f"{self.engine}://{self.user}:{self.password}@{self.host}:{self.port}/{self.name}"
 
     class Config:
         env_prefix = "DATABASE_"
@@ -28,5 +30,22 @@ class AuthSettings(BaseSettings):
         env_prefix = "AUTH_"
 
 
+class BaseIntegrationSettings(BaseSettings):
+    host: str
+    port: str
+
+    @property
+    def service_address(self) -> str:
+        return f"http://{self.host}:{self.port}"
+
+
+class AvatarGeneratorSettings(BaseIntegrationSettings):
+    image_size: int
+
+    class Config:
+        env_prefix = "AVATAR_SERVICE_"
+
+
 auth_settings = AuthSettings()
 database_settings = DatabaseSettings()
+avatar_generator_settings = AvatarGeneratorSettings()

@@ -86,10 +86,18 @@ class DeliveryStatus(Base):
     __tablename__ = "delivery_status"
 
 
+class UserRole(Base):
+    name: Mapped[str]
+    description_desc: Mapped[str]
+    users = relationship("User")
+
+    __tablename__ = "user_role"
+
+
 class User(SQLAlchemyBaseUserTable[int], Base):
     full_nm: Mapped[str | None]
     phone_num: Mapped[str | None]
-    role: Mapped[str | None]
+    role_id: Mapped[str | None] = mapped_column(ForeignKey("user_role.id"))
     photo_base64: Mapped[str | None]
     username: Mapped[str | None]
     warehouses = relationship("Warehouse")

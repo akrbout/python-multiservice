@@ -13,6 +13,8 @@ from src.storage.crud import BaseCrud
 from src.storage.models import User
 from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import Depends
+from src.service.profile import ProfileService
+from src.routers import profile
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
@@ -69,6 +71,7 @@ async def startup():
 
 # SERVICE AUTH ROUTERS
 app.include_router(auth.router)
+app.include_router(profile.router)
 
 
 @app.get("/", include_in_schema=False)
@@ -87,6 +90,13 @@ async def test_crud(session: AsyncSession = Depends(engine.get_async_session)):
     users = await crud.get_all(User)
     users = [user._data for user in users]
     return users
+
+
+@app.get("/test_integration_avatar")
+async def test_int_avatar():
+    profile_service = ProfileService()
+    res = await profile_service.generate_profile_avatar("testtest")
+    return res
 
 
 @app.get("/products")
