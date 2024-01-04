@@ -36,3 +36,8 @@ class BaseCrud:
             return False
         res = await self.create(new_obj)
         return True if res else False
+
+    async def delete(self, obj: ...):
+        if not obj.is_deleted:
+            obj.is_deleted = True
+        return await self.update(obj)

@@ -4,5 +4,5 @@
     <option name="pathToExecutable" value="/opt/homebrew/bin/black" />
     <option name="sdkName" value="Python 3.9 (Passwd-Manager)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Poetry (python-multiservice) (2)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Poetry (python-multiservice)" project-jdk-type="Python SDK" />
 </project>
