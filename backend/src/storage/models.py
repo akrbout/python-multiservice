@@ -48,7 +48,7 @@ class Order(Base):
     total_discount: Mapped[int] = mapped_column(default=0)
     source_warehouse: Mapped[int]
     user_id: Mapped[int] = mapped_column(ForeignKey("user.id"))
-    order_details = relationship("OrderDetails")
+    order_details = relationship("OrderDetail")
     delivery_status_id: Mapped[int] = mapped_column(ForeignKey("delivery_status.id"))
 
     __tablename__ = "order"
@@ -87,7 +87,7 @@ class DeliveryStatus(Base):
 
 
 class User(SQLAlchemyBaseUserTable[int], Base):
-    full_name: Mapped[str | None]
+    full_nm: Mapped[str | None]
     phone_num: Mapped[str | None]
     role: Mapped[str | None]
     photo_url: Mapped[str | None]

@@ -9,6 +9,10 @@ from fastapi.responses import RedirectResponse
 from fastapi.security import OAuth2PasswordBearer
 
 from src.storage import engine
+from src.storage.crud import BaseCrud
+from src.storage.models import User
+from sqlalchemy.ext.asyncio import AsyncSession
+from fastapi import Depends
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
@@ -75,6 +79,14 @@ async def docs_redirect():
 @app.get("/healthz", status_code=status.HTTP_200_OK)
 async def health_check() -> dict[str, int]:
     return {"status": status.HTTP_200_OK}
+
+
+@app.get("/test_crud")
+async def test_crud(session: AsyncSession = Depends(engine.get_async_session)):
+    crud = BaseCrud(session)
+    users = await crud.get_all(User)
+    users = [user._data for user in users]
+    return users
 
 
 @app.get("/products")

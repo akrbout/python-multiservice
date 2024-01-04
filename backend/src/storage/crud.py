@@ -1,5 +1,5 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import Select
+from sqlalchemy import Select, select
 
 
 class BaseCrud:
@@ -15,3 +15,24 @@ class BaseCrud:
     async def _execute_statement_for_list(self, statement: Select):
         results = await self.session.execute(statement)
         return results.all()
+
+    async def get_first_one(self, id: int, obj: ...):
+        statement = select(obj).where(obj.id == id)
+        return await self._execute_statement_for_one(statement)
+
+    async def get_all(self, obj: ...):
+        statement = select(obj)
+        return await self._execute_statement_for_list(statement)
+
+    async def create(self, obj: ...):
+        self.session.add(obj)
+        await self.session.commit()
+        await self.session.refresh(obj)
+        return obj
+
+    async def update(self, new_obj: ...) -> bool:
+        old_obj = self.get_first_one(new_obj.id, new_obj)
+        if not old_obj:
+            return False
+        res = await self.create(new_obj)
+        return True if res else False
